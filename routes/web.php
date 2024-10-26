@@ -1,6 +1,7 @@
 <?php
 
 use App\Mail\DataMail;
+use App\Mail\EmbedImageMail;
 use App\Mail\FirstMail;
 use App\Mail\ImageMail;
 use Illuminate\Support\Facades\Mail;
@@ -24,6 +25,12 @@ Route::get('/send-data', function () {
 
 Route::get('/send-image', function () {
     Mail::to('image@test.com')->send(new ImageMail());
+
+    return to_route('home');
+});
+
+Route::get('/send-embed-image', function () {
+    Mail::to('embed-image@test.com')->send(new EmbedImageMail());
 
     return to_route('home');
 });
