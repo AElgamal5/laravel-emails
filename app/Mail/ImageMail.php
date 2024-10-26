@@ -50,7 +50,10 @@ class ImageMail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath(public_path('images/silent-hill-2-remake.jpg'))->as('silent-hill.jpg')->withMime('image/jpg'),
+            Attachment::fromPath(public_path('images/silent-hill-2-remake.jpg'))->as('silent-hill_1.jpg')->withMime('image/jpeg'),
+            Attachment::fromPath(storage_path('app/public/silent-hill-2-remake.jpg'))->as('silent-hill_2.jpg')->withMime('image/jpeg'),
+            Attachment::fromStorage('public/silent-hill-2-remake.jpg')->as('silent-hill_3.jpg')->withMime('image/jpeg'),
+            Attachment::fromStorageDisk('public', 'silent-hill-2-remake.jpg')->as('silent-hill_4.jpg')->withMime('image/jpeg'),
         ];
     }
 }
